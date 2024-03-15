@@ -5,18 +5,20 @@
     box-sizing: border-box;
 }
 body {
-    background: #222;
+    background: #222222fe;
 }
 .card{
     width: 80%;
     max-width: 470px;
-    background: linear-gradient(135deg, #00feba0e, #5b548a);
+    background: linear-gradient(135deg, #00000000, #5b548a);
     color: #fff;
-    margin: 100px auto 0;
+    margin: 10px auto 0; /* Adjusted margin */
     border-radius: 20px;
     padding: 10px 15px;
     text-align: center;
 }
+
+
 .search {
     width: 100%;
     display: flex;
@@ -27,8 +29,8 @@ body {
 .search input {
     border: 0;
     outline: 0;
-    background: #ebfffc;
-    color: #555;
+    background: #fafbfb15;
+    color: #000000;
     padding: 10px 25px;
     height: 60px;
     border-radius: 30px;
@@ -39,7 +41,7 @@ body {
 .search button {
     border: 0;
     outline: 0;
-    background: #ebfffc;
+    background: #ebfffc21;
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -94,9 +96,20 @@ body {
     display: none;
 }
 
-@media (min-width: 768px) {
+.video-background {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+}
+
+@media (min-width: 600px) {
     .card {
-        padding: 10px 10px;
+        padding: 5px 5px;
     }
     .search {
         justify-content: center;
@@ -130,13 +143,22 @@ body {
     }
 }
 
-.video-background {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1;
+@media (min-aspect-ratio: 16/9) {
+    .video-background {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .video-background {
+        width: auto;
+        height: 100%;
+    }
+}
+
+.logo
+{
+    margin: 25px;
+    height: 50px;
 }
