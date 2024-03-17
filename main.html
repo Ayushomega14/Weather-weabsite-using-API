@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
@@ -10,34 +9,34 @@
 <body>
     <section class="header">
         <video autoplay loop class="video-background" muted plays-inline>
-            <source src="images and video\moon-at-night.3840x2160.mp4" type="video/mp4">
+            <source src="images and video/moon-at-night.3840x2160.mp4" type="video/mp4">
         </video>
 
-        <img src="images and video\Weather logo.png" class="logo">
+        <img src="images and video/Weather logo.png" class="logo">
     </section>
 
     <div class="card">
         <div class="search">
             <input type="text" placeholder="Enter Location" spellcheck="false">
-            <button><img src="images and video\search.png" alt=""></button>
+            <button><img src="images and video/search.png" alt=""></button>
         </div>
-        <div class="error">
+        <div class="error" style="display: none;">
             <p>Invalid Location</p>
         </div>
-        <div class="weather">
-            <img src="images and video\rain.png" class="weather-icon">
+        <div class="weather" style="display: none;">
+            <img src="images and video/rain.png" class="weather-icon">
             <h1 class="temp">22</h1>
             <h2 class="city">New York</h2>
             <div class="details">
                 <div class="col">
-                    <img src="images and video\humidity.png">
+                    <img src="images and video/humidity.png">
                     <div>
                         <p class="humidity">50%</p>
-                        <p>Humidty</p>
+                        <p>Humidity</p>
                     </div>
                 </div>
                 <div class="col">
-                    <img src="images and video\wind.png">
+                    <img src="images and video/wind.png">
                     <div>
                         <p class="wind">15 km/hr</p>
                         <p>Wind Speed</p>
@@ -47,57 +46,6 @@
         </div>
     </div>
 
-<script>
-const apiKey = "ddd883487a403db0bd896b80050ae911";
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-
-const searchBox = document.querySelector(".search input");
-const searchBtn = document.querySelector(".search button");
-const weatherIcon = document.querySelector(".weather-icon");
-const locationBtn = document.querySelector("#location-btn");
-
-async function checkWeather(city){
-    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-
-    if(response.status == 404){
-        document.querySelector(".error").style.display = "block";
-        document.querySelector(".weather").style.display = "none";
-    }
-    else{
-
-    var data = await response.json();
-
-    document.querySelector(".city").innerHTML = data.name;
-    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
-    document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-    document.querySelector(".wind").innerHTML = data.wind.speed + "km/hr";
-
-    if(data.weather[0].main == "Clouds"){
-        weatherIcon.src="images and video\clear.png";
-    }
-    else if(data.weather[0].main == "Rain"){
-        weatherIcon.src == "images and video\rain.png";
-    }
-    else if(data.weather[0].main == "Drizzle"){
-        weatherIcon.src == "images and video\drizzle.png";
-    }
-    else if(data.weather[0].main == "Mist"){
-        weatherIcon.src == "images and video\mist.png";
-    }
-
-    document.querySelector(".weather").style.display = "block";
-    document.querySelector(".error").style.display = "none";
-}
-    
-}
-
-searchBtn.addEventListener("click", ()=>{
-    checkWeather(searchBox.value);
-});
-
-
-
-</script>
-
+<script src="main.js"></script>
 </body>
 </html>
