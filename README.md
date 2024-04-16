@@ -3,7 +3,6 @@
 ## Inspiration
 
 In today's fast-paced world, access to accurate weather information is crucial for planning daily activities and making informed decisions. Our project, aimed at developing a weather website with API integration, stemmed from the desire to provide users with a seamless and intuitive platform to check weather forecasts conveniently. We envision a user-friendly website that not only delivers reliable weather data but also enhances user experience through elegant design and smooth functionality.
-I also inspired by the Bharat Intern as i got a project from them to create a weather website as a intern project.
 
 ## What it Does
 
